@@ -7,10 +7,13 @@ import Repos from "./repos";
 
 import Proptypes from 'prop-types'
 
-const AppContent = ({ userinfo, repos, starred, handleSearch, getRepos, getStarred }) => (
+const AppContent = ({ userinfo, repos, starred, searchingData, handleSearch, getRepos, getStarred }) => (
     
     <div className='app'>
-        <Search handleSearch={handleSearch}/>
+        
+        <Search disableField = {searchingData} handleSearch={handleSearch}/>
+        
+        {searchingData && <div>Carregando....</div>}
         
         {!!userinfo && <UserInfo userinfo={userinfo}/>}
         
@@ -28,7 +31,11 @@ AppContent.propTypes = {
 
     userinfo: Proptypes.object,
     repos: Proptypes.array,
-    starred: Proptypes.array
+    starred: Proptypes.array,
+    searchingData: Proptypes.bool.isRequired,
+    handleSearch: Proptypes.func.isRequired,
+    getRepos: Proptypes.func.isRequired,
+    getStarred: Proptypes.func.isRequired
 
 }
 

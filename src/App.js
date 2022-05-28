@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       userinfo: null,
       repos: [],
-      starred: []
+      starred: [],
+      searchingData: false
     }
   }
 
@@ -19,6 +20,9 @@ class App extends Component {
     const username = e.target.value;
 
     if(e.key === 'Enter') {
+
+        this.setState({ searchingData: true });
+
         ajax().get( URL + username )
         .then((result) => {
             this.setState({
@@ -29,9 +33,15 @@ class App extends Component {
                 picture: result.avatar_url,
                 followers: result.followers,
                 following: result.following
-              }
+              },
+              repos: [],
+              starred: []
             })
-        })
+        }).always(() => {
+
+            this.setState({ searchingData: false });
+
+        });
     }
   }
 
@@ -58,6 +68,7 @@ class App extends Component {
       userinfo = {this.state.userinfo}
       repos = {this.state.repos}
       starred = {this.state.starred}
+      searchingData = {this.state.searchingData}
       handleSearch = {(e) => this.handleSearch(e)}
       getRepos = {this.getRepos('repos')}
       getStarred = {this.getRepos('starred')}

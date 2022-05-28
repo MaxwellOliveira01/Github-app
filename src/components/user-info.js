@@ -7,6 +7,10 @@ const UserInfo = ({ userinfo }) => (
         
         <img src={userinfo.picture} alt=""/>
 
+        {
+            console.log(userinfo)
+        }
+
         <h1 className='username'>
             <a href={"https://github.com/" + userinfo.login}>{userinfo.username}</a>
         </h1>
