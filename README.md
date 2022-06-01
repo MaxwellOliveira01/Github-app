@@ -3,3 +3,5 @@
 <br>
 
 ![image](/src/img/img.png)
+
+Use "npm install" and "npm start" to run
