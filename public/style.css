@@ -19,6 +19,10 @@
     list-style: none;
 }
 
+.user-info li {
+    margin: 15px;
+}
+
 .actions {
     float: left;
     width: 100%;
