@@ -7,7 +7,7 @@ import Repos from "./repos";
 
 import Proptypes from 'prop-types'
 
-const AppContent = ({ userinfo, repos, starred, searchingData, handleSearch, getRepos, getStarred }) => (
+const AppContent = ({ userinfo, repos, starred, hideRepo, hideFav, searchingData, handleSearch, getRepos, getStarred }) => (
     
     <div className='app'>
         
@@ -19,9 +19,9 @@ const AppContent = ({ userinfo, repos, starred, searchingData, handleSearch, get
         
         {!!userinfo && <Actions getRepos={getRepos} getStarred={getStarred} />}
 
-        {!!repos.length && <Repos className='repos' title="Repositórios" reps={repos}/>}
+        {!!repos.length && !hideRepo && <Repos className='repos' title="Repositórios" reps={repos}/>}
 
-        {!!starred.length && <Repos className='starred' title='Favoritos' reps={starred}/>}
+        {!!starred.length && !hideFav && <Repos className='starred' title='Favoritos' reps={starred}/>}
 
     </div>
 

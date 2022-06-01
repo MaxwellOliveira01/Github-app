@@ -11,6 +11,8 @@ class App extends Component {
       userinfo: null,
       repos: [],
       starred: [],
+      hideRepo: true,
+      hideFav: true,
       searchingData: false
     }
   }
@@ -36,7 +38,9 @@ class App extends Component {
                 following: result.following
               },
               repos: [],
-              starred: []
+              starred: [],
+              hideRepo: true,
+              hideFav: true
             })
         }).always(() => {
 
@@ -48,6 +52,11 @@ class App extends Component {
 
   getRepos(rep) {
     return (e) => { //this function will be executed on button
+      if(rep === 'repos') 
+        this.setState({hideRepo : !this.state.hideRepo});
+      else
+        this.setState({hideFav: !this.state.hideFav});
+
       const URL = "https://api.github.com/users/";
       ajax().get(URL + this.state.userinfo.login + '/' + rep)
       .then((result) => {
@@ -70,6 +79,8 @@ class App extends Component {
       repos = {this.state.repos}
       starred = {this.state.starred}
       searchingData = {this.state.searchingData}
+      hideRepo = {this.state.hideRepo}
+      hideFav = {this.state.hideFav}
       handleSearch = {(e) => this.handleSearch(e)}
       getRepos = {this.getRepos('repos')}
       getStarred = {this.getRepos('starred')}
