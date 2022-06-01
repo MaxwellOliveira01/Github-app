@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Search = ({ disableField, handleSearch }) => (
     <div className='search'>
@@ -6,15 +7,16 @@ const Search = ({ disableField, handleSearch }) => (
             type = 'search'
             placeholder = "Digite o nome do usuário no Github"
             disabled = {disableField}
-            onKeyUp = {handleSearch} />
+            onKeyUp = {handleSearch} 
+            size = {30}
+        />
     </div>
 )
 
-Search.protTypes = {
+Search.propTypes = {
 
-    disableField: Proptypes.bool.isRequired,
-    handleSearch: Proptypes.func.isRequired
-
+    disableField: PropTypes.bool.isRequired,
+    handleSearch: PropTypes.func.isRequired
 
 }
 

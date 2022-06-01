@@ -29,6 +29,7 @@ class App extends Component {
               userinfo: {
                 login: result.login,
                 username: result.name,
+                bio: result.bio,
                 repos: result.public_repos,
                 picture: result.avatar_url,
                 followers: result.followers,

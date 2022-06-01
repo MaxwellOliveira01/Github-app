@@ -7,13 +7,11 @@ const UserInfo = ({ userinfo }) => (
         
         <img src={userinfo.picture} alt=""/>
 
-        {
-            console.log(userinfo)
-        }
-
         <h1 className='username'>
             <a href={"https://github.com/" + userinfo.login}>{userinfo.username}</a>
         </h1>
+
+        <p className='bio'>{userinfo.bio}</p>
 
         <ul className='repos-info'>
             <li> Repositórios: {userinfo.repos}</li>
@@ -27,6 +25,7 @@ const UserInfo = ({ userinfo }) => (
 UserInfo.propTypes = {
     userinfo: Proptypes.shape({
         login: Proptypes.string,
+        bio: Proptypes.string,
         repos: Proptypes.number,
         picture: Proptypes.string,
         username: Proptypes.string,

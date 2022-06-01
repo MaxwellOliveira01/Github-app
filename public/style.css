@@ -1,13 +1,18 @@
 .app {
     float: left;
     padding: 30px;
-    width: 100%;
+    width: 80%;
 }
  
 .user-info img {
     float: left;
     margin: 0 20px 20px 0;
-    max-height: 200px;
+    max-height: 250px;
+}
+
+.user-info p {
+    align: justify;
+    width: 75%;
 }
 
 .actions {
@@ -23,14 +28,49 @@
     width: 30%;
 }
 
-.repos-info li {
-    padding: 10px;
-}
-
 .username {
     height: 100%
 }
 
-ul {
+.search {
+    height: 40px;
+}
+
+.search input {
+    width: 60%;
+    height: 100%;
+}
+
+.repos {
+    float: left;
+    margin-left: -50px;
+}
+
+.repos ul {
     list-style: none; //removing the circle before text
+}
+
+.repos h2 {
+    text-align: center;
+}
+
+.starred {
+    float: left;
+    margin-left: -50px;
+}
+
+.repos li {
+    margin: 15px ;
+}
+
+.starred li {
+    margin: 15px;
+}
+
+.starred ul {
+    list-style: none;
+}
+
+.starred h2 {
+    text-align: center;
 }
